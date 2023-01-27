@@ -38,7 +38,6 @@ for line in lines:
     new_dict = dict()
     for field, value in zip(field_names, line.split("|")):
         if value == "":
-            print("null spotted")
             value = None
 
         if value == "TRUE":
