@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} <title> Result Page </title> {% endblock %}
+
+{% block content %}
+<h1>Result Page</h1>
+
+<h4>Average Price: {{avg_price}}</h4>
+
+<center>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Vehicle</th>
+                <th scope="col">Price</th>
+                <th scope="col">Mileage</th>
+                <th scope="col">Location</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for car in cars %}
+
+            <tr>
+                <th scope="row">{{car.make}} {{car.model}}  {{car.year}}</th>
+                <td>{{car.listing_price}}</td>
+                <td>{{car.listing_mileage}}</td>
+                <td>{{car.dealer_city}}, {{car.dealer_state}}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+
+{% endblock %}

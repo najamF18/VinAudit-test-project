@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} <title> Price Page </title> {% endblock %}
+
+
+{% block content %}
+  <h1>Calculate Price</h1>
+
+  <center>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="yearinput">Year</label>
+        <input type="number" class="form-control w-25" name="yearinput" required>
+      </div>
+      <div class="form-group">
+        <label for="make">Make</label>
+        <input type="string" class="form-control w-25" name="makeinput" required>
+      </div>
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="string" class="form-control w-25" name="modelinput" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mileage">Mileage</label>
+        <input type="number" class="form-control w-25" name="mileageinput">
+      </div>
+      <button type="submit" class="btn btn-primary">Get Average Price</button>
+    </form>
+  </center>
+
+{% endblock %}
