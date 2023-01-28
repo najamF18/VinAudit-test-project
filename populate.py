@@ -20,12 +20,6 @@ with open("data_reduced1.txt", "r") as f:
 f.close()
 
 
-with open("data_reduced2.txt", "r") as f:
-    lines = lines + [line.strip() for line in f]
-
-f.close()
-
-
 program_starts = time.time()
 for line in lines:
     new_dict = dict()
