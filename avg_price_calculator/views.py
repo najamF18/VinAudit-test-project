@@ -14,6 +14,7 @@ class CalculatePrice(TemplateView):
         return render(request, "search.html")
 
     def post(self, request, *args, **kwargs):
+        avg_price = "N/A"
         year = request.POST["yearinput"]
         model = request.POST["modelinput"]
         make = request.POST["makeinput"]
@@ -28,7 +29,8 @@ class CalculatePrice(TemplateView):
         prices = list(
             cars.exclude(listing_price=None).values_list("listing_price", flat=True)
         )
-        avg_price = round(sum(prices) / len(cars), -2)
+        if prices:
+            avg_price = round(sum(prices) / len(cars), -2)
         return render(
             request,
             "results.html",

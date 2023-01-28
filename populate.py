@@ -18,19 +18,12 @@ with open("data_reduced1.txt", "r") as f:
     lines = lines[1:]
 
 f.close()
-   
+
 
 with open("data_reduced2.txt", "r") as f:
     lines = lines + [line.strip() for line in f]
 
 f.close()
-
-
-with open("data_reduced3.txt", "r") as f:
-    lines = lines + [line.strip() for line in f]
-
-f.close()
-
 
 
 program_starts = time.time()
@@ -49,4 +42,3 @@ for line in lines:
     objs.append(Car(**new_dict))
     now = time.time()
 Car.objects.bulk_create(objs)
-
