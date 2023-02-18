@@ -32,7 +32,7 @@ class CalculatePrice(TemplateView):
             model__icontains=model,
             make__icontains=make,
         )
-        avg_price = calculate_avg_price(cars)
+        avg_price = calculate_avg_price(mileage)
         return render(
             request,
             "results.html",
