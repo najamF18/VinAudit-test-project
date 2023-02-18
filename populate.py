@@ -2,7 +2,12 @@ import os
 
 import django
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "carValue.settings")
+django.setup()
+
 from avg_price_calculator.models import Car
+
+
 
 
 def parse_value(value):
@@ -31,8 +36,7 @@ def bulk_create_cars(objs):
 
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "carValue.settings")
-    django.setup()
+    
 
     try:
         with open("data_reduced1.txt", "r") as f:
